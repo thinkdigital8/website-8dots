@@ -750,19 +750,54 @@ function footer(depth) {
   </footer>`;
 }
 
-function headTag(title, depth) {
+const BASE_URL = 'https://8dots.netlify.app';
+
+function headTag(title, metaDesc, canonical, schema, depth) {
   const root = '../'.repeat(depth);
+  const schemaJson = JSON.stringify(schema, null, 2);
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${title} — 8dots</title>
+
+  <!-- Primary SEO -->
+  <title>${title}</title>
+  <meta name="description" content="${metaDesc}"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="8dots"/>
+  <link rel="canonical" href="${BASE_URL}${canonical}"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="8dots"/>
+  <meta property="og:title" content="${title}"/>
+  <meta property="og:description" content="${metaDesc}"/>
+  <meta property="og:url" content="${BASE_URL}${canonical}"/>
+  <meta property="og:image" content="${BASE_URL}/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale" content="en_IN"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="${title}"/>
+  <meta name="twitter:description" content="${metaDesc}"/>
+  <meta name="twitter:image" content="${BASE_URL}/og-image.png"/>
+
+  <!-- Sitemap reference -->
+  <link rel="sitemap" type="application/xml" href="${BASE_URL}/sitemap.xml"/>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
   <link rel="stylesheet" href="${root}style.css"/>
   <link rel="stylesheet" href="${root}service.css"/>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">${schemaJson}</script>
 </head>
 <body>`;
 }
@@ -784,6 +819,50 @@ function buildMainPage(svc) {
   mkdir(dir);
   const root = '../../';
   const depth = 2;
+  const canonical = `/services/${svc.slug}/`;
+
+  const metaDesc = `${svc.description.slice(0, 148).trim()}…`;
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": svc.title,
+      "description": svc.description,
+      "provider": {
+        "@type": "Organization",
+        "name": "8dots",
+        "url": BASE_URL,
+        "logo": `${BASE_URL}/logo.svg`,
+        "email": "info@8dots.in",
+        "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+      },
+      "url": `${BASE_URL}${canonical}`,
+      "areaServed": "IN",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": `${svc.title} Services`,
+        "itemListElement": svc.subs.map((s, i) => ({
+          "@type": "Offer",
+          "position": i + 1,
+          "name": s.title,
+          "description": s.tagline,
+          "url": `${BASE_URL}/services/${svc.slug}/${s.slug}/`
+        }))
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": `${BASE_URL}/#services` },
+        { "@type": "ListItem", "position": 3, "name": svc.title, "item": `${BASE_URL}${canonical}` }
+      ]
+    }
+  ];
+
+  const pageTitle = `${svc.title} Services in India | 8dots Digital Agency`;
 
   const subCards = svc.subs.map(sub => `
         <a href="${sub.slug}/index.html" class="sub-card">
@@ -806,7 +885,7 @@ function buildMainPage(svc) {
             <p>${s.label}</p>
           </div>`).join('<div class="stat-divider"></div>');
 
-  const html = `${headTag(svc.title, depth)}
+  const html = `${headTag(pageTitle, metaDesc, canonical, schema, depth)}
 ${navbar(depth)}
 
   <section class="svc-hero">
@@ -878,6 +957,52 @@ function buildSubPage(svc, sub) {
   mkdir(dir);
   const root  = '../../../';
   const depth = 3;
+  const canonical = `/services/${svc.slug}/${sub.slug}/`;
+
+  const metaDesc = `${sub.description.slice(0, 148).trim()}…`;
+  const pageTitle = `${sub.title} | ${svc.title} | 8dots India`;
+
+  const faqSchema = (sub.faqs || []).length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": (sub.faqs || []).map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  } : null;
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": sub.title,
+      "description": sub.description,
+      "provider": {
+        "@type": "Organization",
+        "name": "8dots",
+        "url": BASE_URL,
+        "logo": `${BASE_URL}/logo.svg`,
+        "email": "info@8dots.in",
+        "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+      },
+      "url": `${BASE_URL}${canonical}`,
+      "areaServed": "IN",
+      "serviceType": sub.title,
+      "category": svc.title
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",           "item": BASE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Services",       "item": `${BASE_URL}/#services` },
+        { "@type": "ListItem", "position": 3, "name": svc.title,        "item": `${BASE_URL}/services/${svc.slug}/` },
+        { "@type": "ListItem", "position": 4, "name": sub.title,        "item": `${BASE_URL}${canonical}` }
+      ]
+    },
+    ...(faqSchema ? [faqSchema] : [])
+  ];
 
   const featureCards = sub.features.map(f => `
           <div class="feature-card reveal">
@@ -909,7 +1034,7 @@ function buildSubPage(svc, sub) {
           <span class="arrow">→</span>
         </a>`).join('');
 
-  const html = `${headTag(sub.title, depth)}
+  const html = `${headTag(pageTitle, metaDesc, canonical, schema, depth)}
 ${navbar(depth)}
 
   <section class="svc-hero">

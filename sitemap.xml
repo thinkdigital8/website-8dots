@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://8dots.netlify.app/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Service Pages -->
+  <url>
+    <loc>https://8dots.netlify.app/services/digital-marketing/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/website-development/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/app-development/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/hire-developer/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/graphic-design/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Digital Marketing Sub-Services -->
+  <url>
+    <loc>https://8dots.netlify.app/services/digital-marketing/seo/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/digital-marketing/social-media-marketing/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/digital-marketing/ppc-advertising/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/digital-marketing/email-content-marketing/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Website Development Sub-Services -->
+  <url>
+    <loc>https://8dots.netlify.app/services/website-development/custom-web-apps/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/website-development/ecommerce/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/website-development/cms-wordpress/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/website-development/landing-pages/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- App Development Sub-Services -->
+  <url>
+    <loc>https://8dots.netlify.app/services/app-development/ios-android/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/app-development/react-native-flutter/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/app-development/app-ui-ux-design/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/app-development/api-integration/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hire Developer Sub-Services -->
+  <url>
+    <loc>https://8dots.netlify.app/services/hire-developer/full-stack/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/hire-developer/frontend/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/hire-developer/backend/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/hire-developer/dedicated-teams/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Graphic Design Sub-Services -->
+  <url>
+    <loc>https://8dots.netlify.app/services/graphic-design/logo-branding/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/graphic-design/social-media-creatives/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/graphic-design/print-packaging/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://8dots.netlify.app/services/graphic-design/motion-graphics/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
