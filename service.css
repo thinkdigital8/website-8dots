@@ -390,3 +390,21 @@
   .breadcrumb { font-size: 12px; }
   .svc-hero-content h1 { letter-spacing: -1px; }
 }
+
+/* ===== SERVICE ILLUSTRATION ===== */
+.svc-illustration-section {
+  padding: 0 0 64px;
+  background: var(--black);
+}
+.svc-illustration-wrap {
+  display: flex;
+  justify-content: center;
+}
+.svc-illustration {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: block;
+}

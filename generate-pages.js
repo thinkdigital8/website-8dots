@@ -908,6 +908,12 @@ ${navbar(depth)}
     </div>
   </section>
 
+  <section class="svc-illustration-section">
+    <div class="container svc-illustration-wrap reveal">
+      <img src="${root}images/services/${svc.slug}.svg" alt="${svc.title} illustration" class="svc-illustration" loading="lazy" />
+    </div>
+  </section>
+
   <section class="sub-services-section" id="sub-services">
     <div class="container">
       <div class="section-header reveal">
@@ -1053,6 +1059,12 @@ ${navbar(depth)}
         <a href="${root}index.html#contact" class="btn-primary">Get Started</a>
         <a href="${root}services/${svc.slug}/index.html" class="btn-ghost">← Back to ${svc.title}</a>
       </div>
+    </div>
+  </section>
+
+  <section class="svc-illustration-section">
+    <div class="container svc-illustration-wrap reveal">
+      <img src="${root}images/services/${sub.slug}.svg" alt="${sub.title} illustration" class="svc-illustration" loading="lazy" />
     </div>
   </section>
 

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#f8f8f8"/>
+  <!-- Central node -->
+  <circle cx="400" cy="250" r="60" fill="#1a1a1a"/>
+  <text x="400" y="258" text-anchor="middle" font-family="sans-serif" font-size="28" fill="white">8</text>
+  <!-- Platform nodes -->
+  <circle cx="200" cy="130" r="44" fill="white" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="200" y="138" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#1a1a1a">f</text>
+  <circle cx="600" cy="130" r="44" fill="#1a1a1a"/>
+  <text x="600" y="138" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white">in</text>
+  <circle cx="140" cy="320" r="44" fill="white" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="140" y="328" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a">✕</text>
+  <circle cx="660" cy="320" r="44" fill="#1a1a1a"/>
+  <text x="660" y="328" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white">▶</text>
+  <circle cx="300" cy="420" r="44" fill="white" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="300" y="428" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#1a1a1a">ig</text>
+  <circle cx="500" cy="420" r="44" fill="#1a1a1a"/>
+  <text x="500" y="428" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white">be</text>
+  <!-- Connection lines -->
+  <line x1="353" y1="205" x2="232" y2="163" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="447" y1="205" x2="568" y2="163" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="348" y1="265" x2="182" y2="305" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="452" y1="265" x2="618" y2="305" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="370" y1="302" x2="330" y2="382" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="430" y1="302" x2="470" y2="382" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="6,4"/>
+  <!-- Engagement bubbles -->
+  <rect x="90" y="200" width="80" height="28" rx="14" fill="white" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="130" y="218" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">+12k ❤</text>
+  <rect x="630" y="200" width="80" height="28" rx="14" fill="white" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="670" y="218" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a1a1a">8.4k 🔁</text>
+</svg>
