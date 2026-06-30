@@ -734,8 +734,8 @@ function footer(depth) {
           <h4>Get in Touch</h4>
           <ul>
             <li><a href="mailto:info@8dots.in">info@8dots.in</a></li>
-            <li><span>+91 XX XXXX XXXX</span></li>
-            <li><span>India</span></li>
+            <li><a href="tel:+917778882276">+91 77788 82276</a></li>
+            <li><span>516, STC, Bopal, Ahmedabad, Gujarat 380058</span></li>
           </ul>
         </div>
       </div>
@@ -835,7 +835,7 @@ function buildMainPage(svc) {
         "url": BASE_URL,
         "logo": `${BASE_URL}/logo.svg`,
         "email": "info@8dots.in",
-        "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+        "address": { "@type": "PostalAddress", "streetAddress": "516, Shivam Trade Centre (STC), near One World West, opp. Saraswati Multispeciality Hospital, Bopal", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "postalCode": "380058", "addressCountry": "IN" }, "telephone": "+917778882276"
       },
       "url": `${BASE_URL}${canonical}`,
       "areaServed": "IN",
@@ -990,7 +990,7 @@ function buildSubPage(svc, sub) {
         "url": BASE_URL,
         "logo": `${BASE_URL}/logo.svg`,
         "email": "info@8dots.in",
-        "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+        "address": { "@type": "PostalAddress", "streetAddress": "516, Shivam Trade Centre (STC), near One World West, opp. Saraswati Multispeciality Hospital, Bopal", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "postalCode": "380058", "addressCountry": "IN" }, "telephone": "+917778882276"
       },
       "url": `${BASE_URL}${canonical}`,
       "areaServed": "IN",
