@@ -19,39 +19,36 @@ interface Props {
 
 const { title, description, slug, icon, tagline, heroDesc, image, features, process, faqs, related } = Astro.props;
 
-const defaultImage = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop';
-const heroImg = image || defaultImage;
+const heroImg = image || 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop';
 ---
 
 <Layout title={`${title} — 8dots Digital Agency`} description={description}>
   <Navbar />
 
-  <!-- ═══ SERVICE HERO ═══ -->
+  <!-- HERO -->
   <section class="svc-hero">
-    <div class="svc-hero-media">
+    <div class="svc-hero-img">
       <img src={heroImg} alt={title} loading="eager" />
       <div class="svc-hero-overlay"></div>
     </div>
     <div class="svc-hero-content container">
-      <div class="svc-breadcrumb">
-        <a href="/">Home</a>
-        <span>/</span>
-        <a href="/#services">Services</a>
-        <span>/</span>
-        <span>{title}</span>
-      </div>
-      <span class="svc-icon">{icon}</span>
-      <h1 class="svc-h1 reveal">{tagline}</h1>
-      <p class="svc-sub reveal reveal-delay-1">{heroDesc}</p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span>
+        <a href="/#services">Services</a> <span>/</span>
+        <span aria-current="page">{title}</span>
+      </nav>
+      <span class="svc-icon-lg">{icon}</span>
+      <h1 class="reveal">{tagline}</h1>
+      <p class="reveal reveal-delay-1">{heroDesc}</p>
       <div class="svc-ctas reveal reveal-delay-2">
-        <a href="/#contact" class="btn-primary">Start a Project</a>
-        <a href="/#contact" class="btn-ghost">Get a Quote</a>
+        <a href="/#contact" class="btn btn-white">Request a Proposal</a>
+        <a href="/#contact" class="btn btn-white-outline">Get a Quote</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FEATURES ═══ -->
-  <section class="section svc-features">
+  <!-- FEATURES -->
+  <section class="section">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">What's Included</span>
@@ -59,8 +56,8 @@ const heroImg = image || defaultImage;
       </div>
       <div class="features-grid">
         {features.map((f, i) => (
-          <div class={`feature-card reveal reveal-delay-${(i % 4) + 1}`}>
-            <div class="feature-num">0{i + 1}</div>
+          <div class={`feat-card reveal reveal-delay-${(i % 4) + 1}`}>
+            <span class="feat-num">0{i + 1}</span>
             <h3>{f.title}</h3>
             <p>{f.desc}</p>
           </div>
@@ -69,18 +66,18 @@ const heroImg = image || defaultImage;
     </div>
   </section>
 
-  <!-- ═══ PROCESS ═══ -->
-  <section class="section section-pure-white svc-process">
+  <!-- PROCESS -->
+  <section class="section section-light">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow" style="color:#777">Our Process</span>
-        <h2 style="color:#0a0a0a">How we deliver<br>exceptional results.</h2>
+        <span class="eyebrow">Our Process</span>
+        <h2>How we deliver<br>exceptional {title.toLowerCase()}.</h2>
       </div>
-      <div class="process-list">
+      <div class="svc-process">
         {process.map((p, i) => (
-          <div class={`process-step reveal reveal-delay-${(i % 3) + 1}`}>
-            <div class="process-step-num">{p.step}</div>
-            <div class="process-step-content">
+          <div class={`proc-step reveal reveal-delay-${(i % 3) + 1}`}>
+            <div class="proc-num">{p.step}</div>
+            <div class="proc-body">
               <h3>{p.title}</h3>
               <p>{p.desc}</p>
             </div>
@@ -90,20 +87,20 @@ const heroImg = image || defaultImage;
     </div>
   </section>
 
-  <!-- ═══ FAQ ═══ -->
-  <section class="section svc-faq">
+  <!-- FAQ -->
+  <section class="section">
     <div class="container">
-      <div class="faq-grid">
-        <div class="faq-left reveal">
+      <div class="faq-wrap">
+        <div class="faq-head reveal">
           <span class="eyebrow">FAQs</span>
           <h2>Common questions<br>about {title.toLowerCase()}.</h2>
-          <p>Don't see your answer? <a href="/#contact">Ask us directly →</a></p>
+          <p>Have another question? <a href="/#contact">Ask us directly →</a></p>
         </div>
-        <div class="faq-list">
+        <div class="faq-list reveal reveal-delay-2">
           {faqs.map((f, i) => (
-            <details class={`faq-item reveal reveal-delay-${i + 1}`}>
+            <details class="faq-item">
               <summary>{f.q}</summary>
-              <div class="faq-answer">{f.a}</div>
+              <div class="faq-body">{f.a}</div>
             </details>
           ))}
         </div>
@@ -111,36 +108,39 @@ const heroImg = image || defaultImage;
     </div>
   </section>
 
-  <!-- ═══ RELATED ═══ -->
-  <section class="section section-white svc-related">
+  <!-- RELATED -->
+  <section class="section section-light">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow" style="color:#777">Related Services</span>
-        <h2 style="color:#0a0a0a">You might also need…</h2>
+        <span class="eyebrow">Explore More</span>
+        <h2>You might also need…</h2>
       </div>
       <div class="related-grid">
         {related.map((r, i) => (
           <a href={`/services/${r.slug}`} class={`related-card reveal reveal-delay-${i + 1}`}>
-            <span class="related-icon">{r.icon}</span>
-            <span class="related-label">{r.label}</span>
-            <span class="related-arrow">→</span>
+            <span class="rel-icon">{r.icon}</span>
+            <div>
+              <span class="eyebrow" style="margin-bottom:0.3rem;display:block">Service</span>
+              <strong>{r.label}</strong>
+            </div>
+            <span class="rel-arrow">→</span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ═══ CTA ═══ -->
-  <section class="svc-cta-band">
+  <!-- CTA -->
+  <section class="svc-cta section-dark">
     <div class="container">
       <div class="svc-cta-inner reveal">
         <div>
-          <p class="eyebrow">Ready to Start?</p>
-          <h2>Let's build your<br><span class="outline">{title}</span><br>project together.</h2>
+          <span class="eyebrow" style="color:#555">Ready to Start?</span>
+          <h2 style="color:#f0ede8">Let's build your<br>{title} project together.</h2>
         </div>
-        <div class="svc-cta-actions">
-          <a href="/#contact" class="btn-primary">Start a Project</a>
-          <a href="tel:+917778882276" class="btn-ghost">Call Us Now</a>
+        <div class="svc-cta-btns">
+          <a href="/#contact" class="btn btn-white">Request a Proposal</a>
+          <a href="tel:+917778882276" class="btn btn-white-outline">Call Us Now</a>
         </div>
       </div>
     </div>
@@ -150,208 +150,151 @@ const heroImg = image || defaultImage;
 </Layout>
 
 <style>
-/* ─── SERVICE HERO ─── */
+/* HERO */
 .svc-hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 72vh;
   display: flex;
   align-items: flex-end;
 }
-.svc-hero-media {
+.svc-hero-img {
   position: absolute;
   inset: 0;
 }
-.svc-hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(30%);
-}
+.svc-hero-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) grayscale(20%); }
 .svc-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,10,10,0.97) 25%, rgba(10,10,10,0.65) 70%, rgba(10,10,10,0.4) 100%);
+  background: linear-gradient(to top, rgba(10,10,10,0.95) 25%, rgba(10,10,10,0.6) 70%, rgba(10,10,10,0.3) 100%);
 }
 .svc-hero-content {
   position: relative;
   z-index: 2;
   padding-top: 120px;
   padding-bottom: clamp(3rem, 7vw, 5rem);
-  max-width: 900px;
+  max-width: 860px;
+  color: #f0ede8;
 }
-.svc-breadcrumb {
+.breadcrumb {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.75rem;
-  color: rgba(248,248,246,0.4);
+  color: rgba(240,237,232,0.45);
   margin-bottom: 2rem;
 }
-.svc-breadcrumb a { transition: color 0.2s; }
-.svc-breadcrumb a:hover { color: #f8f8f6; }
-.svc-breadcrumb span:not(:last-child) { color: rgba(248,248,246,0.2); }
-.svc-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
-.svc-h1 {
+.breadcrumb a { transition: color 0.2s; }
+.breadcrumb a:hover { color: #f0ede8; }
+.breadcrumb span { color: rgba(240,237,232,0.2); }
+.breadcrumb [aria-current] { color: rgba(240,237,232,0.6); }
+.svc-icon-lg { font-size: 2.25rem; display: block; margin-bottom: 1rem; }
+.svc-hero-content h1 {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 4.5vw, 4rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-  color: #f8f8f6;
+  margin-bottom: 1.25rem;
 }
-.svc-sub {
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  color: rgba(248,248,246,0.6);
+.svc-hero-content p {
+  font-size: 1.05rem;
+  color: rgba(240,237,232,0.65);
   line-height: 1.75;
-  max-width: 640px;
+  max-width: 600px;
   margin-bottom: 2.5rem;
 }
 .svc-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* ─── FEATURES ─── */
+/* FEATURES */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5px;
-  background: rgba(255,255,255,0.06);
+  background: var(--border);
+  border: 1px solid var(--border);
 }
-.feature-card {
-  background: #111;
+.feat-card {
+  background: var(--white);
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transition: background 0.3s;
-}
-.feature-card:hover { background: #161616; }
-.feature-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: rgba(248,248,246,0.07);
-  line-height: 1;
-}
-.feature-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-.feature-card p { font-size: 0.9rem; color: rgba(248,248,246,0.5); line-height: 1.65; }
-
-/* ─── PROCESS ─── */
-.process-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-top: 1px solid rgba(0,0,0,0.1);
-}
-.process-step {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 3rem;
-  align-items: start;
-  padding: 2.5rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  gap: 0.6rem;
   transition: background 0.2s;
 }
-.process-step:hover { background: rgba(0,0,0,0.02); }
-.process-step-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 3rem;
-  font-weight: 800;
-  color: rgba(0,0,0,0.08);
-  line-height: 1;
-  padding-top: 0.2rem;
-}
-.process-step-content h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #0a0a0a;
-  margin-bottom: 0.6rem;
-}
-.process-step-content p { font-size: 0.95rem; color: #555; line-height: 1.7; }
+.feat-card:hover { background: var(--off-white); }
+.feat-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--light); line-height: 1; }
+.feat-card h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.feat-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
 
-/* ─── FAQ ─── */
-.faq-grid {
+/* PROCESS */
+.svc-process { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+.proc-step {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
+  grid-template-columns: 80px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.proc-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--border); line-height: 1; padding-top: 0.15rem; }
+.proc-body h3 { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+.proc-body p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+/* FAQ */
+.faq-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
   gap: 6rem;
   align-items: start;
 }
-.faq-left h2 {
+.faq-head h2 {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
   font-weight: 800;
   line-height: 1.1;
-  margin: 1rem 0 1.5rem;
+  margin: 0.75rem 0 1rem;
 }
-.faq-left p { font-size: 0.9rem; color: rgba(248,248,246,0.45); }
-.faq-left p a { text-decoration: underline; opacity: 0.7; transition: opacity 0.2s; }
-.faq-left p a:hover { opacity: 1; }
-.faq-list { display: flex; flex-direction: column; }
-.faq-item {
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+.faq-head p { font-size: 0.875rem; color: var(--muted); }
+.faq-head p a { text-decoration: underline; }
+.faq-list { border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
 .faq-item summary {
-  padding: 1.5rem 0;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  transition: color 0.2s;
+  padding: 1.25rem 0;
+  font-weight: 600;
+  font-size: 0.975rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
 }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
-  content: '+';
-  font-size: 1.4rem;
-  font-weight: 300;
-  flex-shrink: 0;
-  transition: transform 0.3s;
-}
+.faq-item summary::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--muted); flex-shrink: 0; transition: transform 0.3s; }
 .faq-item[open] summary::after { transform: rotate(45deg); }
-.faq-item summary:hover { color: rgba(248,248,246,0.8); }
-.faq-answer {
-  padding: 0 0 1.5rem;
-  font-size: 0.95rem;
-  color: rgba(248,248,246,0.5);
-  line-height: 1.75;
-}
+.faq-body { font-size: 0.9rem; color: var(--muted); line-height: 1.75; padding-bottom: 1.25rem; }
 
-/* ─── RELATED ─── */
-.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+/* RELATED */
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .related-card {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.1);
-  padding: 1.5rem 2rem;
-  transition: border-color 0.2s, box-shadow 0.3s;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.3s, transform 0.3s;
 }
-.related-card:hover { border-color: rgba(0,0,0,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
-.related-icon { font-size: 1.5rem; }
-.related-label {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #0a0a0a;
-  flex: 1;
-}
-.related-arrow { color: #aaa; font-size: 1.1rem; transition: transform 0.2s, color 0.2s; }
-.related-card:hover .related-arrow { transform: translateX(4px); color: #0a0a0a; }
+.related-card:hover { border-color: var(--text); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.rel-icon { font-size: 1.6rem; flex-shrink: 0; }
+.related-card strong { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); display: block; }
+.rel-arrow { margin-left: auto; color: var(--muted); font-size: 1.1rem; transition: transform 0.2s; }
+.related-card:hover .rel-arrow { transform: translateX(4px); color: var(--text); }
 
-/* ─── CTA BAND ─── */
-.svc-cta-band {
-  background: var(--black);
-  padding: clamp(4rem, 10vw, 8rem) 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
+/* CTA */
+.svc-cta { padding: clamp(4rem, 9vw, 7rem) 0; }
 .svc-cta-inner {
   display: flex;
   align-items: center;
@@ -364,26 +307,29 @@ const heroImg = image || defaultImage;
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.05;
+  letter-spacing: -0.02em;
   margin-top: 0.75rem;
 }
-.svc-cta-inner .eyebrow { margin-bottom: 0.5rem; }
-.svc-cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.svc-cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 @media (max-width: 900px) {
-  .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .faq-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
   .related-grid { grid-template-columns: 1fr; }
-  .process-step { grid-template-columns: 64px 1fr; gap: 1.5rem; }
-  .process-step-num { font-size: 2rem; }
+  .proc-step { grid-template-columns: 56px 1fr; gap: 1.5rem; }
+  .proc-num { font-size: 1.75rem; }
   .svc-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 </style>
 
 <script>
 document.querySelectorAll('.faq-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const isOpen = item.hasAttribute('open');
-    document.querySelectorAll('.faq-item[open]').forEach(d => d.removeAttribute('open'));
-    if (!isOpen) setTimeout(() => item.setAttribute('open', ''), 0);
+  item.addEventListener('click', e => {
+    const tgt = e.target as HTMLElement;
+    if (tgt.tagName === 'SUMMARY' || tgt.closest('summary')) {
+      const isOpen = item.hasAttribute('open');
+      document.querySelectorAll('.faq-item[open]').forEach(d => d.removeAttribute('open'));
+      if (!isOpen) setTimeout(() => item.setAttribute('open', ''), 0);
+    }
   });
 });
 </script>
