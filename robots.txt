@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://8dots.netlify.app/sitemap.xml
