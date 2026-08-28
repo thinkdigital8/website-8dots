@@ -4,188 +4,198 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 const services = [
-  { slug: 'app-development',      icon: '📱', label: 'App Development',      desc: 'iOS, Android & cross-platform apps built for scale and performance.' },
-  { slug: 'web-development',      icon: '🌐', label: 'Web Development',       desc: 'Custom websites, web apps, CMS and e-commerce platforms.' },
-  { slug: 'digital-marketing',    icon: '📈', label: 'Digital Marketing',      desc: 'SEO, PPC, social media & content that drives real revenue.' },
-  { slug: 'ui-ux-design',         icon: '🎨', label: 'UI/UX Design',           desc: 'User-centric interfaces that convert and delight.' },
-  { slug: 'graphic-design',       icon: '✏️', label: 'Graphic Design',         desc: 'Brand identities, print and motion graphics that stand out.' },
-  { slug: 'software-development', icon: '⚙️', label: 'Software Development',   desc: 'Custom software solutions for complex business problems.' },
-  { slug: 'branding',             icon: '💡', label: 'Branding',               desc: 'Strategic brand identity that resonates and endures.' },
-];
-
-const stats = [
-  { n: '13+', label: 'Years Experience' },
-  { n: '2000+', label: 'Projects Delivered' },
-  { n: '1200+', label: 'Happy Clients' },
-  { n: '7', label: 'Service Verticals' },
+  { slug: 'branding', icon: '💡', title: 'Branding', desc: 'Strategic brand identity — positioning, naming, and visual systems for brands people choose.', img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80&auto=format&fit=crop' },
+  { slug: 'web-development', icon: '🌐', title: 'Web Development', desc: 'Pixel-perfect, blazing-fast websites built with modern stacks and obsessive attention to detail.', img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80&auto=format&fit=crop' },
+  { slug: 'app-development', icon: '📱', title: 'App Development', desc: 'iOS and Android apps that users love — from concept to App Store launch.', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&auto=format&fit=crop' },
+  { slug: 'ui-ux-design', icon: '🎨', title: 'UI/UX Design', desc: 'Interfaces that feel intuitive, look stunning, and drive measurable results.', img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80&auto=format&fit=crop' },
+  { slug: 'digital-marketing', icon: '📈', title: 'Digital Marketing', desc: 'Data-driven growth across SEO, paid ads, social media, and content strategy.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop' },
+  { slug: 'graphic-design', icon: '✏️', title: 'Graphic Design', desc: 'Visual stories that stop the scroll — logos, motion graphics, and print that stand out.', img: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80&auto=format&fit=crop' },
+  { slug: 'software-development', icon: '⚙️', title: 'Software Dev', desc: 'Custom SaaS, ERP, and enterprise software engineered for complex, real-world problems.', img: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=80&auto=format&fit=crop' },
 ];
 
 const team = [
-  { name: 'Snehal Patel', role: 'Founder & CEO' },
-  { name: 'Tushar Premal', role: 'Tech Lead' },
-  { name: 'Arbaz Shaikh', role: 'Design Director' },
-  { name: 'Aradhana Yadav', role: 'Marketing Head' },
-  { name: 'Arjun Odedara', role: 'Dev Lead' },
+  { name: 'Snehal Patel', role: 'Founder & Creative Director', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&auto=format&fit=crop&crop=face' },
+  { name: 'Tushar Premal', role: 'Co-Founder & Tech Lead', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop&crop=face' },
+  { name: 'Arbaz Shaikh', role: 'Head of Design', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop&crop=face' },
+  { name: 'Aradhana Yadav', role: 'Digital Marketing Lead', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&auto=format&fit=crop&crop=face' },
+  { name: 'Arjun Odedara', role: 'Full Stack Developer', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format&fit=crop&crop=face' },
 ];
+
+const work = [
+  { title: 'VivaBite Food App', category: 'App Development', img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80&auto=format&fit=crop' },
+  { title: 'Luxe Naturals Brand', category: 'Branding & Packaging', img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&auto=format&fit=crop' },
+  { title: 'TechVault SaaS', category: 'Web Development', img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80&auto=format&fit=crop' },
+  { title: 'GrowStar Campaign', category: 'Digital Marketing', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop' },
+];
+
+const testimonials = [
+  { name: 'Ravi Mehta', role: 'CEO, NovaTech', text: '8dots transformed our brand identity from the ground up. The strategy was sharp, the design was stunning, and the results were immediate. Our investor pitches hit differently now.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&auto=format&fit=crop&crop=face' },
+  { name: 'Priya Sharma', role: 'Founder, UrbanEats', text: 'The app they built for us has 4.9 stars on the Play Store after 1,200 reviews. That\'s not luck — that\'s meticulous design and engineering. We went from idea to launch in 16 weeks.', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80&auto=format&fit=crop&crop=face' },
+  { name: 'Amit Joshi', role: 'CMO, FinServe India', text: 'Our organic traffic grew 340% in 6 months and our paid CAC dropped by half. 8dots doesn\'t just run campaigns — they build growth systems.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&auto=format&fit=crop&crop=face' },
+];
+
+const marqueeItems = ['Branding', 'Web Design', 'App Dev', 'UI/UX', 'Digital Marketing', 'Software Dev', 'Graphic Design', 'Brand Strategy', 'Branding', 'Web Design', 'App Dev', 'UI/UX', 'Digital Marketing', 'Software Dev', 'Graphic Design', 'Brand Strategy'];
 ---
-<Layout title="8dots — Innovative IT Solutions | Ahmedabad, India" description="8dots is Ahmedabad's trusted IT company. App development, web development, digital marketing, UI/UX and graphic design. 13+ years, 2000+ projects.">
+
+<Layout title="8dots — Creative Digital Agency | Ahmedabad" description="8dots is a full-service creative digital agency in Ahmedabad. Strategy, branding, web, app development, and digital marketing for brands that refuse to be ordinary.">
   <Navbar />
 
-  <!-- HERO -->
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-content container">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Est. 2012 · Ahmedabad, India
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85&auto=format&fit=crop" alt="8dots agency workspace" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-container container">
+      <div class="hero-left">
+        <p class="eyebrow reveal">Creative Digital Agency · Ahmedabad, India</p>
+        <h1 class="hero-h1 reveal reveal-delay-1">
+          We Build<br>
+          Things That<br>
+          <span class="outline">Matter.</span>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">Strategy, design, and technology —<br>crafted for brands that refuse to be ordinary.</p>
+        <div class="hero-ctas reveal reveal-delay-3">
+          <a href="#contact" class="btn-primary">Start a Project</a>
+          <a href="#work" class="btn-ghost">See Our Work →</a>
+        </div>
       </div>
-      <h1 class="hero-title reveal">
-        <span>We Build</span>
-        <span class="outline block">Digital</span>
-        <span>Products</span>
-      </h1>
-      <p class="hero-sub reveal">Innovative IT solutions tailored for your success. From pixels to products, we craft technology that moves businesses forward.</p>
-      <div class="hero-ctas reveal">
-        <a href="/#services" class="btn btn-white">Explore Services ↓</a>
-        <a href="/#contact" class="btn btn-outline">Let's Talk →</a>
-      </div>
-      <div class="hero-stats reveal">
-        {stats.map(s => (
-          <div class="hstat">
-            <span class="hstat-n">{s.n}</span>
-            <span class="hstat-l">{s.label}</span>
-          </div>
-        ))}
+      <div class="hero-stats reveal reveal-delay-2">
+        <div class="stat"><span>13+</span><p>Years of Excellence</p></div>
+        <div class="stat"><span>200+</span><p>Projects Delivered</p></div>
+        <div class="stat"><span>50+</span><p>Happy Clients</p></div>
+        <div class="stat"><span>7</span><p>Core Services</p></div>
       </div>
     </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
+    <div class="hero-scroll-line">
       <span>Scroll</span>
+      <div class="scroll-bar"></div>
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      {[1,2].map(() => (
-        <div class="marquee-content">
-          {['App Dev', '·', 'Web Dev', '·', 'UI/UX', '·', 'Digital Marketing', '·', 'Branding', '·', 'Software', '·', 'Graphic Design', '·'].map(t => (
-            <span class={t === '·' ? 'dot' : ''}>{t}</span>
-          ))}
-        </div>
+  <!-- ═══ MARQUEE ═══ -->
+  <div class="marquee-band">
+    <div class="marquee-track" aria-hidden="true">
+      {marqueeItems.map(item => (
+        <span class="marquee-item">{item}<em>✦</em></span>
       ))}
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section class="services-section" id="services">
+  <!-- ═══ SERVICES ═══ -->
+  <section class="section" id="services">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">What We Do</span>
-        <h2 class="section-title">Services That <span class="outline">Ignite</span> Growth</h2>
-        <p class="section-sub">End-to-end digital capabilities under one roof.</p>
+      <div class="services-top reveal">
+        <div class="section-head">
+          <span class="eyebrow">What We Do</span>
+          <h2>End-to-end digital<br>services for ambitious<br>brands.</h2>
+        </div>
+        <p class="services-desc">From the first sketch to the final pixel, we handle every dimension of your digital presence. Seven specialisms, one relentless team.</p>
       </div>
       <div class="services-grid">
-        {services.map((svc, i) => (
-          <a href={`/services/${svc.slug}`} class="svc-card reveal" style={`--delay:${i * 80}ms`}>
-            <div class="svc-card-top">
-              <span class="svc-icon">{svc.icon}</span>
-              <span class="svc-num">0{i+1}</span>
+        {services.map((s, i) => (
+          <a href={`/services/${s.slug}`} class={`service-card reveal reveal-delay-${(i % 4) + 1}`}>
+            <div class="card-img">
+              <img src={s.img} alt={s.title} loading="lazy" />
             </div>
-            <h3 class="svc-name">{svc.label}</h3>
-            <p class="svc-desc">{svc.desc}</p>
-            <div class="svc-arrow">→</div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="card-icon">{s.icon}</span>
+                <span class="card-num">0{i + 1}</span>
+              </div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+              <span class="card-link">Explore service →</span>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- STATS BAND -->
-  <section class="stats-band">
-    <div class="container stats-grid">
-      {stats.map(s => (
-        <div class="stat-item reveal">
-          <span class="stat-n">{s.n}</span>
-          <span class="stat-l">{s.label}</span>
-        </div>
-      ))}
+  <!-- ═══ ABOUT BANNER ═══ -->
+  <section class="about-banner">
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=85&auto=format&fit=crop" alt="8dots team collaboration" loading="lazy" />
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="container about-grid">
-      <div class="about-left reveal">
-        <span class="section-label">About 8dots</span>
-        <h2 class="section-title">Built on <span class="outline">Craft</span>,<br/>Driven by <span class="outline">Results</span></h2>
-        <p>Since 2012, 8dots has been the digital backbone of startups, SMEs, and enterprises across India and the globe. We combine technical depth with creative energy to deliver solutions that actually work.</p>
-        <p>Our offices in Ahmedabad and Houston serve clients across industries — from fintech to fashion, SaaS to services.</p>
-        <a href="/#contact" class="btn btn-white" style="margin-top:32px;">Work With Us →</a>
-      </div>
-      <div class="about-right reveal">
-        <div class="team-grid">
-          {team.map(m => (
-            <div class="team-card">
-              <div class="team-avatar">
-                {m.name.split(' ').map(n => n[0]).join('')}
-              </div>
-              <div>
-                <p class="team-name">{m.name}</p>
-                <p class="team-role">{m.role}</p>
-              </div>
-            </div>
-          ))}
+    <div class="about-overlay">
+      <div class="container">
+        <div class="about-text reveal">
+          <span class="eyebrow">About 8dots</span>
+          <h2>We're a team of<br>makers, thinkers<br>& <span class="outline">builders.</span></h2>
+          <p>Founded in Ahmedabad in 2012, we've spent 13+ years helping ambitious businesses grow through smart strategy and exceptional craft. We believe great work comes from deep collaboration, clear thinking, and a relentless pursuit of quality.</p>
+          <a href="/#contact" class="btn-primary" style="margin-top: 2rem;">Work With Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WORK TEASER -->
-  <section class="work-section" id="work">
+  <!-- ═══ WORK ═══ -->
+  <section class="section section-pure-white" id="work">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Portfolio</span>
-        <h2 class="section-title">2000+ Projects.<br/><span class="outline">All Delivered.</span></h2>
+      <div class="work-top reveal">
+        <div class="section-head">
+          <span class="eyebrow" style="color:#777">Selected Work</span>
+          <h2 style="color:#0a0a0a">Projects we're<br>proud of.</h2>
+        </div>
+        <a href="/#contact" class="btn-dark">Start Your Project</a>
       </div>
       <div class="work-grid">
-        {[
-          { label: 'E-Commerce Platform', tag: 'Web Dev', bg: '#111' },
-          { label: 'Mobile Banking App', tag: 'App Dev', bg: '#0d0d0d' },
-          { label: 'Brand Identity System', tag: 'Branding', bg: '#141414' },
-          { label: 'SaaS Dashboard', tag: 'UI/UX', bg: '#0a0a0a' },
-        ].map(w => (
-          <div class="work-card reveal" style={`background:${w.bg}`}>
-            <div class="work-tag">{w.tag}</div>
-            <h3 class="work-label">{w.label}</h3>
-            <div class="work-arr">↗</div>
+        {work.map((w, i) => (
+          <div class={`work-card reveal reveal-delay-${(i % 3) + 1}`}>
+            <div class="work-img">
+              <img src={w.img} alt={w.title} loading="lazy" />
+              <div class="work-overlay">
+                <span>View Project →</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <span class="work-cat">{w.category}</span>
+              <h3>{w.title}</h3>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testi-section">
+  <!-- ═══ TEAM ═══ -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Testimonials</span>
-        <h2 class="section-title">Clients Love <span class="outline">8dots</span></h2>
+      <div class="section-head reveal">
+        <span class="eyebrow">The Team</span>
+        <h2>The people who<br>make it happen.</h2>
+      </div>
+      <div class="team-grid">
+        {team.map((m, i) => (
+          <div class={`team-card reveal reveal-delay-${(i % 4) + 1}`}>
+            <div class="team-img">
+              <img src={m.img} alt={m.name} loading="lazy" />
+            </div>
+            <h4>{m.name}</h4>
+            <p>{m.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:#777">Testimonials</span>
+        <h2 style="color:#0a0a0a">What our clients say.</h2>
       </div>
       <div class="testi-grid">
-        {[
-          { text: 'The team at 8dots delivered our app on time and beyond our expectations. Highly professional and technically excellent.', name: 'Rahul Mehta', role: 'CEO, FinStart' },
-          { text: 'Our website traffic tripled within 3 months of partnering with 8dots for SEO and digital marketing. Incredible results.', name: 'Priya Shah', role: 'Founder, StyleBrand' },
-          { text: 'Patient, creative, and precise. 8dots redesigned our entire brand identity and the results speak for themselves.', name: 'David Chen', role: 'Director, TechCo USA' },
-        ].map(t => (
-          <div class="testi-card reveal">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">"{t.text}"</p>
+        {testimonials.map((t, i) => (
+          <div class={`testi-card reveal reveal-delay-${i + 1}`}>
+            <p class="quote">&ldquo;{t.text}&rdquo;</p>
             <div class="testi-author">
-              <div class="testi-avatar">{t.name[0]}</div>
+              <img src={t.img} alt={t.name} loading="lazy" />
               <div>
-                <p class="testi-name">{t.name}</p>
-                <p class="testi-role">{t.role}</p>
+                <strong>{t.name}</strong>
+                <span>{t.role}</span>
               </div>
             </div>
           </div>
@@ -194,70 +204,86 @@ const team = [
     </div>
   </section>
 
-  <!-- CTA BAND -->
+  <!-- ═══ CTA BAND ═══ -->
   <section class="cta-band">
-    <div class="container cta-inner reveal">
-      <h2>Ready to Build<br/>Something <span class="outline-sm">Great?</span></h2>
-      <p>Let's talk about your project. No fluff, just real solutions.</p>
-      <a href="/#contact" class="btn btn-white btn-large">Start a Project →</a>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div>
+          <p class="eyebrow">Let's Build Something</p>
+          <h2>Ready to make your<br>brand unforgettable?</h2>
+        </div>
+        <div class="cta-actions">
+          <a href="#contact" class="btn-primary">Start a Project</a>
+          <a href="tel:+917778882276" class="btn-ghost">+91 77788 82276</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="container contact-grid">
-      <div class="contact-info reveal">
-        <span class="section-label">Contact</span>
-        <h2 class="section-title">Let's <span class="outline">Talk</span></h2>
-        <div class="contact-details">
-          <div class="contact-item">
-            <span class="ci-icon">✉</span>
-            <a href="mailto:info@8dots.in">info@8dots.in</a>
+  <!-- ═══ CONTACT ═══ -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <span class="eyebrow">Contact Us</span>
+          <h2>Let's start<br>a conversation.</h2>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:info@8dots.in">info@8dots.in</a>
+            </div>
+            <div class="contact-item">
+              <span>Phone</span>
+              <a href="tel:+917778882276">+91 77788 82276</a>
+            </div>
+            <div class="contact-item">
+              <span>Address</span>
+              <address>516 STC, Bopal,<br>Ahmedabad, Gujarat 380058</address>
+            </div>
+            <div class="contact-item">
+              <span>Also</span>
+              <address>Houston, TX, USA</address>
+            </div>
           </div>
-          <div class="contact-item">
-            <span class="ci-icon">☎</span>
-            <a href="tel:+917778882276">+91 77788 82276</a>
-          </div>
-          <div class="contact-item">
-            <span class="ci-icon">📍</span>
-            <span>516 Shivam Trade Centre (STC),<br/>Bopal, Ahmedabad, Gujarat 380058</span>
-          </div>
-          <div class="contact-item">
-            <span class="ci-icon">🌍</span>
-            <span>Houston, TX (USA Office)</span>
+          <div class="contact-socials">
+            <a href="https://linkedin.com/company/8dots" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+            <a href="https://instagram.com/8dots.in" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+            <a href="https://facebook.com/8dots.in" aria-label="Facebook" target="_blank" rel="noopener">fb</a>
           </div>
         </div>
+        <form class="contact-form reveal reveal-delay-2" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-row">
+            <div class="form-field">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-field">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="john@company.com" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Service Needed</label>
+            <select name="service">
+              <option value="">Select a service</option>
+              <option>Branding</option>
+              <option>Web Development</option>
+              <option>App Development</option>
+              <option>UI/UX Design</option>
+              <option>Digital Marketing</option>
+              <option>Graphic Design</option>
+              <option>Software Development</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Tell us about your project</label>
+            <textarea name="message" rows="5" placeholder="What are you building? What's your timeline and budget?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Send Message</button>
+        </form>
       </div>
-      <form class="contact-form reveal" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Service</label>
-          <select>
-            <option>App Development</option>
-            <option>Web Development</option>
-            <option>Digital Marketing</option>
-            <option>UI/UX Design</option>
-            <option>Graphic Design</option>
-            <option>Software Development</option>
-            <option>Branding</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea rows="5" placeholder="Tell us about your project..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-white" style="width:100%;justify-content:center;">Send Message ⚡</button>
-      </form>
     </div>
   </section>
 
@@ -265,469 +291,488 @@ const team = [
 </Layout>
 
 <style>
-/* HERO */
+/* ─── HERO ─── */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  align-items: stretch;
 }
-#heroCanvas {
+.hero-media {
   position: absolute;
   inset: 0;
-  width: 100%; height: 100%;
 }
-.hero-content {
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10,10,10,0.92) 0%,
+    rgba(10,10,10,0.75) 50%,
+    rgba(10,10,10,0.55) 100%
+  );
+}
+.hero-container {
   position: relative;
   z-index: 2;
-  padding-top: 120px;
-  padding-bottom: 80px;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 8px 16px;
-  margin-bottom: 32px;
-}
-.badge-dot {
-  width: 6px; height: 6px;
-  background: #fff;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
-}
-.hero-title {
-  font-size: clamp(56px, 10vw, 120px);
-  font-weight: 800;
-  line-height: 1.0;
-  margin-bottom: 24px;
-  letter-spacing: -3px;
-}
-.block { display: block; }
-.hero-sub {
-  font-size: clamp(16px, 2vw, 20px);
-  color: rgba(255,255,255,0.55);
-  max-width: 520px;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-.hero-ctas {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 64px;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 100px;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  width: 100%;
 }
+.hero-left { flex: 1; max-width: 700px; }
+.hero-h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 1.5rem 0 1.5rem;
+  color: #f8f8f6;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: rgba(248,248,246,0.65);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero-stats {
   display: flex;
-  gap: 48px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2rem;
+  flex-shrink: 0;
+  border-left: 1px solid rgba(255,255,255,0.15);
+  padding-left: 3rem;
 }
-.hstat { display: flex; flex-direction: column; gap: 4px; }
-.hstat-n { font-family: var(--font-display); font-size: 28px; font-weight: 800; }
-.hstat-l { font-size: 12px; color: var(--gray); letter-spacing: 0.05em; }
-
-.hero-scroll {
+.stat span {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #f8f8f6;
+  line-height: 1;
+}
+.stat p {
+  font-size: 0.8rem;
+  color: rgba(248,248,246,0.5);
+  margin-top: 0.25rem;
+}
+.hero-scroll-line {
   position: absolute;
-  bottom: 40px;
-  right: 48px;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--gray2);
+  gap: 0.5rem;
+  z-index: 2;
+}
+.hero-scroll-line span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: rgba(248,248,246,0.4);
 }
-.scroll-line {
-  width: 1px; height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--gray2));
-  animation: scrollLine 2s ease-in-out infinite;
+.scroll-bar {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(248,248,246,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
 }
-@keyframes scrollLine {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
+@keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
 
-/* MARQUEE */
-.marquee-wrap {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 0;
+/* ─── MARQUEE ─── */
+.marquee-band {
+  background: #f8f8f6;
   overflow: hidden;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-.marquee-content span {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: #0a0a0a;
+  padding-right: 3rem;
 }
-.marquee-content .dot { color: var(--white); opacity: 0.6; }
+.marquee-item em { font-style: normal; color: #aaa; font-size: 0.5rem; }
 
-/* SERVICES */
-.services-section { padding: 120px 0; }
-.section-header { margin-bottom: 64px; }
-.section-title {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  letter-spacing: -1px;
+/* ─── SERVICES ─── */
+.services-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
 }
-.section-sub { color: var(--gray); font-size: 16px; }
-
+.services-top .section-head { flex: 1; }
+.services-desc {
+  flex: 0 0 380px;
+  color: rgba(248,248,246,0.55);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding-top: 0.5rem;
+}
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5px;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
 }
-.svc-card {
-  background: var(--black);
-  padding: 40px;
+.service-card {
+  background: var(--dark-card);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  cursor: pointer;
+  overflow: hidden;
   transition: background 0.3s;
-  text-decoration: none;
-  color: inherit;
-  transition-delay: var(--delay, 0ms);
 }
-.svc-card:hover { background: var(--black3); }
-.svc-card-top {
+.service-card:hover { background: #161616; }
+.card-img {
+  height: 200px;
+  overflow: hidden;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(40%);
+  transition: transform 0.6s var(--ease), filter 0.4s;
+}
+.service-card:hover .card-img img { transform: scale(1.06); filter: grayscale(0%); }
+.card-body {
+  padding: 1.5rem;
   display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card-top {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
+  margin-bottom: 0.75rem;
 }
-.svc-icon { font-size: 28px; }
-.svc-num {
-  font-family: var(--font-display);
-  font-size: 13px;
-  color: var(--gray2);
+.card-icon { font-size: 1.4rem; }
+.card-num {
+  font-size: 0.7rem;
   font-weight: 700;
+  color: rgba(248,248,246,0.2);
+  letter-spacing: 0.1em;
 }
-.svc-name {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+.card-body h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
 }
-.svc-desc { font-size: 14px; color: var(--gray); line-height: 1.7; flex: 1; }
-.svc-arrow {
-  font-size: 20px;
-  color: var(--gray2);
-  transition: color 0.2s, transform 0.2s;
-  align-self: flex-end;
+.card-body p {
+  font-size: 0.875rem;
+  color: rgba(248,248,246,0.55);
+  line-height: 1.65;
+  flex: 1;
 }
-.svc-card:hover .svc-arrow { color: var(--white); transform: translate(4px, -4px); }
+.card-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(248,248,246,0.4);
+  transition: color 0.2s;
+}
+.service-card:hover .card-link { color: #f8f8f6; }
 
-/* STATS BAND */
-.stats-band {
-  background: var(--white);
-  color: var(--black);
-  padding: 64px 0;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
-}
-.stat-item { display: flex; flex-direction: column; gap: 8px; }
-.stat-n { font-family: var(--font-display); font-size: 48px; font-weight: 800; color: var(--black); }
-.stat-l { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; }
-
-/* ABOUT */
-.about-section { padding: 120px 0; }
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.about-left p { color: var(--gray); font-size: 16px; line-height: 1.8; margin-top: 24px; }
-.team-grid { display: flex; flex-direction: column; gap: 16px; }
-.team-card {
+/* ─── ABOUT BANNER ─── */
+.about-banner {
+  position: relative;
+  min-height: 600px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  background: var(--black2);
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: border-color 0.2s;
 }
-.team-card:hover { border-color: rgba(255,255,255,0.2); }
-.team-avatar {
-  width: 44px; height: 44px;
-  background: var(--white);
-  color: var(--black);
+.about-img-wrap {
+  position: absolute;
+  inset: 0;
+}
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+}
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10,10,10,0.96) 45%, rgba(10,10,10,0.4) 100%);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-family: var(--font-display);
-  font-size: 16px;
-  flex-shrink: 0;
 }
-.team-name { font-weight: 600; font-size: 15px; }
-.team-role { font-size: 12px; color: var(--gray); margin-top: 2px; }
+.about-text {
+  max-width: 600px;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+.about-text h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  margin: 1rem 0 1.5rem;
+}
+.about-text p {
+  font-size: 1.05rem;
+  color: rgba(248,248,246,0.6);
+  line-height: 1.75;
+  max-width: 480px;
+}
 
-/* WORK */
-.work-section { padding: 120px 0; }
+/* ─── WORK ─── */
+.work-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
+  gap: 1.5rem;
 }
-.work-card {
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  min-height: 240px;
+.work-card { cursor: pointer; }
+.work-img {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
-  transition: background 0.3s;
+  aspect-ratio: 4/3;
+  background: #e8e4df;
 }
-.work-card:hover { background: var(--black3) !important; }
-.work-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 6px 12px;
-  align-self: flex-start;
+.work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
 }
-.work-label {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-top: auto;
-}
-.work-arr {
-  font-size: 24px;
+.work-overlay {
   position: absolute;
-  top: 32px; right: 32px;
-  color: var(--gray2);
-  transition: all 0.2s;
-}
-.work-card:hover .work-arr { color: var(--white); transform: translate(4px, -4px); }
-
-/* TESTIMONIALS */
-.testi-section { padding: 120px 0; }
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.testi-card {
-  padding: 40px;
-  background: var(--black2);
-  border: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  transition: border-color 0.2s;
-}
-.testi-card:hover { border-color: rgba(255,255,255,0.2); }
-.testi-stars { color: var(--white); letter-spacing: 2px; font-size: 14px; }
-.testi-text { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.75); flex: 1; }
-.testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar {
-  width: 40px; height: 40px;
-  background: var(--white);
-  color: var(--black);
+  inset: 0;
+  background: rgba(10,10,10,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-family: var(--font-display);
-  border-radius: 50%;
-  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-.testi-name { font-weight: 600; font-size: 14px; }
-.testi-role { font-size: 12px; color: var(--gray); }
+.work-overlay span {
+  color: #f8f8f6;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+.work-card:hover .work-img img { transform: scale(1.04); }
+.work-card:hover .work-overlay { opacity: 1; }
+.work-info { padding: 1rem 0 0; }
+.work-cat {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+}
+.work-info h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-top: 0.25rem;
+}
 
-/* CTA BAND */
+/* ─── TEAM ─── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.team-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+.team-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.08);
+  transition: border-color 0.3s, transform 0.4s var(--ease);
+}
+.team-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: filter 0.4s; }
+.team-card:hover .team-img { border-color: rgba(255,255,255,0.35); transform: scale(1.04); }
+.team-card:hover .team-img img { filter: grayscale(0%); }
+.team-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; }
+.team-card p { font-size: 0.8rem; color: rgba(248,248,246,0.45); }
+
+/* ─── TESTIMONIALS ─── */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.testi-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.quote {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #1a1a1a;
+  flex: 1;
+  font-style: italic;
+}
+.testi-author { display: flex; align-items: center; gap: 0.75rem; }
+.testi-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.testi-author strong { display: block; font-size: 0.9rem; color: #0a0a0a; }
+.testi-author span { font-size: 0.75rem; color: #777; }
+
+/* ─── CTA BAND ─── */
 .cta-band {
-  background: var(--white);
-  color: var(--black);
-  padding: 100px 0;
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: clamp(3rem, 7vw, 5rem) 0;
 }
 .cta-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 .cta-inner h2 {
-  font-size: clamp(36px, 5vw, 56px);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
   font-weight: 800;
   line-height: 1.1;
-  color: var(--black);
 }
-.outline-sm { -webkit-text-stroke: 2px var(--black); color: transparent; }
-.cta-inner p { font-size: 16px; color: #555; max-width: 300px; }
-.btn-large { padding: 18px 48px; font-size: 15px; }
-.btn-white { background: var(--black); color: var(--white); }
-.btn-white:hover { background: #222; }
+.cta-inner .eyebrow { margin-bottom: 0.75rem; }
+.cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* CONTACT */
-.contact-section { padding: 120px 0; }
+/* ─── CONTACT ─── */
+.contact-section { background: #0a0a0a; }
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
 }
-.contact-details { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
-.contact-item { display: flex; align-items: flex-start; gap: 16px; }
-.ci-icon {
-  font-size: 18px;
-  width: 40px; height: 40px;
+.contact-left h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 1rem 0 2.5rem;
+}
+.contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+.contact-item > span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248,248,246,0.35);
+}
+.contact-item a, .contact-item address {
+  font-size: 1rem;
+  color: rgba(248,248,246,0.8);
+  font-style: normal;
+  line-height: 1.6;
+  transition: color 0.2s;
+}
+.contact-item a:hover { color: #f8f8f6; }
+.contact-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.contact-socials a {
+  width: 40px;
+  height: 40px;
   border: 1px solid rgba(255,255,255,0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: border-color 0.2s, background 0.2s;
 }
-.contact-item a { color: rgba(255,255,255,0.7); font-size: 15px; }
-.contact-item a:hover { color: var(--white); }
-.contact-item span { color: var(--gray); font-size: 15px; line-height: 1.6; }
+.contact-socials a:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
 
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
-.form-group input,
-.form-group select,
-.form-group textarea {
-  background: var(--black2);
+/* Contact Form */
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-field label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(248,248,246,0.4);
+}
+.form-field input, .form-field select, .form-field textarea {
+  background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
-  color: var(--white);
-  font-family: var(--font);
-  font-size: 15px;
-  padding: 14px 18px;
+  color: #f8f8f6;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.875rem 1rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
   resize: vertical;
 }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus { border-color: rgba(255,255,255,0.4); }
-.form-group select option { background: var(--black2); }
-
-/* CTA BTN on contact */
-.contact-form .btn-white {
-  background: var(--white);
-  color: var(--black);
+.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(248,248,246,0.25); }
+.form-field select option { background: #1a1a1a; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.07);
 }
-.contact-form .btn-white:hover { background: var(--white2); }
 
-/* RESPONSIVE */
+/* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-container { flex-direction: column; align-items: flex-start; }
+  .hero-stats { flex-direction: row; flex-wrap: wrap; border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 2rem; }
+  .services-top { flex-direction: column; }
+  .services-desc { flex: auto; }
+  .about-overlay { background: linear-gradient(to bottom, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.7) 100%); }
   .work-grid { grid-template-columns: 1fr; }
-  .cta-inner { flex-direction: column; text-align: center; }
+  .work-top { flex-direction: column; align-items: flex-start; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
   .form-row { grid-template-columns: 1fr; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
-  .hero-title { letter-spacing: -2px; }
-  .hero-stats { gap: 24px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { gap: 1.5rem; }
+  .stat span { font-size: 1.8rem; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
-
-<script>
-// Three.js hero canvas
-(async () => {
-  const canvas = document.getElementById('heroCanvas');
-  if (!canvas) return;
-  const THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.module.js');
-  const W = canvas.offsetWidth, H = canvas.offsetHeight;
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setSize(W, H);
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, W/H, 0.1, 1000);
-  camera.position.z = 30;
-
-  // Particles
-  const geo = new THREE.BufferGeometry();
-  const count = 3000;
-  const pos = new Float32Array(count * 3);
-  for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 100;
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.12, transparent: true, opacity: 0.5 });
-  scene.add(new THREE.Points(geo, mat));
-
-  // Wireframe sphere
-  const sGeo = new THREE.IcosahedronGeometry(12, 2);
-  const sEdges = new THREE.EdgesGeometry(sGeo);
-  const sMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.04 });
-  const sphere = new THREE.LineSegments(sEdges, sMat);
-  sphere.position.set(20, 0, -10);
-  scene.add(sphere);
-
-  let mx = 0, my = 0;
-  window.addEventListener('mousemove', e => {
-    mx = (e.clientX / window.innerWidth - 0.5) * 2;
-    my = -(e.clientY / window.innerHeight - 0.5) * 2;
-  });
-
-  let t = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    t += 0.005;
-    sphere.rotation.x = t * 0.3;
-    sphere.rotation.y = t * 0.5;
-    camera.position.x += (mx * 3 - camera.position.x) * 0.05;
-    camera.position.y += (my * 3 - camera.position.y) * 0.05;
-    camera.lookAt(0, 0, 0);
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', () => {
-    const w = canvas.parentElement.offsetWidth;
-    const h = canvas.parentElement.offsetHeight;
-    renderer.setSize(w, h);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  });
-})();
-
-// Contact form
-document.getElementById('contactForm')?.addEventListener('submit', e => {
-  e.preventDefault();
-  alert('Thanks! We\'ll be in touch within 24 hours ⚡');
-  e.target.reset();
-});
-</script>

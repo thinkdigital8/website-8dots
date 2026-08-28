@@ -10,47 +10,57 @@ interface Props {
   icon: string;
   tagline: string;
   heroDesc: string;
+  image?: string;
   features: { title: string; desc: string }[];
   process: { step: string; title: string; desc: string }[];
   faqs: { q: string; a: string }[];
   related: { slug: string; label: string; icon: string }[];
 }
-const { title, description, slug, icon, tagline, heroDesc, features, process, faqs, related } = Astro.props;
+
+const { title, description, slug, icon, tagline, heroDesc, image, features, process, faqs, related } = Astro.props;
+
+const defaultImage = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop';
+const heroImg = image || defaultImage;
 ---
-<Layout title={`${title} | 8dots`} description={description} canonical={`/services/${slug}`}>
+
+<Layout title={`${title} — 8dots Digital Agency`} description={description}>
   <Navbar />
 
+  <!-- ═══ SERVICE HERO ═══ -->
   <section class="svc-hero">
-    <canvas id="svcCanvas"></canvas>
-    <div class="container svc-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="svc-hero-media">
+      <img src={heroImg} alt={title} loading="eager" />
+      <div class="svc-hero-overlay"></div>
+    </div>
+    <div class="svc-hero-content container">
+      <div class="svc-breadcrumb">
         <a href="/">Home</a>
         <span>/</span>
         <a href="/#services">Services</a>
         <span>/</span>
         <span>{title}</span>
-      </nav>
-      <div class="svc-badge">{icon}</div>
-      <h1>{tagline}</h1>
-      <p class="svc-hero-desc">{heroDesc}</p>
-      <div class="svc-ctas">
-        <a href="/#contact" class="btn btn-white">Start a Project →</a>
-        <a href="/#services" class="btn btn-outline">← All Services</a>
+      </div>
+      <span class="svc-icon">{icon}</span>
+      <h1 class="svc-h1 reveal">{tagline}</h1>
+      <p class="svc-sub reveal reveal-delay-1">{heroDesc}</p>
+      <div class="svc-ctas reveal reveal-delay-2">
+        <a href="/#contact" class="btn-primary">Start a Project</a>
+        <a href="/#contact" class="btn-ghost">Get a Quote</a>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="features-section">
+  <!-- ═══ FEATURES ═══ -->
+  <section class="section svc-features">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">What's Included</span>
-        <h2 class="section-title">Everything in Our <span class="outline">{title}</span> Service</h2>
+      <div class="section-head reveal">
+        <span class="eyebrow">What's Included</span>
+        <h2>Everything you need<br>from {title.toLowerCase()}.</h2>
       </div>
       <div class="features-grid">
         {features.map((f, i) => (
-          <div class="feature-card reveal" style={`--delay:${i * 60}ms`}>
-            <div class="fc-num">0{i+1}</div>
+          <div class={`feature-card reveal reveal-delay-${(i % 4) + 1}`}>
+            <div class="feature-num">0{i + 1}</div>
             <h3>{f.title}</h3>
             <p>{f.desc}</p>
           </div>
@@ -59,70 +69,80 @@ const { title, description, slug, icon, tagline, heroDesc, features, process, fa
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="process-section">
+  <!-- ═══ PROCESS ═══ -->
+  <section class="section section-pure-white svc-process">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">How We Work</span>
-        <h2 class="section-title">Our <span class="outline">Process</span></h2>
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:#777">Our Process</span>
+        <h2 style="color:#0a0a0a">How we deliver<br>exceptional results.</h2>
       </div>
-      <div class="process-steps">
+      <div class="process-list">
         {process.map((p, i) => (
-          <div class="process-step reveal">
-            <div class="ps-step">{p.step}</div>
-            <div class="ps-content">
+          <div class={`process-step reveal reveal-delay-${(i % 3) + 1}`}>
+            <div class="process-step-num">{p.step}</div>
+            <div class="process-step-content">
               <h3>{p.title}</h3>
               <p>{p.desc}</p>
             </div>
-            {i < process.length - 1 && <div class="ps-line"></div>}
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq-section">
-    <div class="container faq-inner">
-      <div class="section-header reveal">
-        <span class="section-label">FAQ</span>
-        <h2 class="section-title">Common <span class="outline">Questions</span></h2>
-      </div>
-      <div class="faq-list">
-        {faqs.map(f => (
-          <details class="faq-item reveal">
-            <summary class="faq-q">{f.q}<span class="faq-icon">+</span></summary>
-            <p class="faq-a">{f.a}</p>
-          </details>
-        ))}
+  <!-- ═══ FAQ ═══ -->
+  <section class="section svc-faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-left reveal">
+          <span class="eyebrow">FAQs</span>
+          <h2>Common questions<br>about {title.toLowerCase()}.</h2>
+          <p>Don't see your answer? <a href="/#contact">Ask us directly →</a></p>
+        </div>
+        <div class="faq-list">
+          {faqs.map((f, i) => (
+            <details class={`faq-item reveal reveal-delay-${i + 1}`}>
+              <summary>{f.q}</summary>
+              <div class="faq-answer">{f.a}</div>
+            </details>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RELATED -->
-  <section class="related-section">
+  <!-- ═══ RELATED ═══ -->
+  <section class="section section-white svc-related">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Also From 8dots</span>
-        <h2 class="section-title">Related <span class="outline">Services</span></h2>
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:#777">Related Services</span>
+        <h2 style="color:#0a0a0a">You might also need…</h2>
       </div>
       <div class="related-grid">
-        {related.map(r => (
-          <a href={`/services/${r.slug}`} class="related-card reveal">
-            <span class="rc-icon">{r.icon}</span>
-            <span class="rc-label">{r.label}</span>
-            <span class="rc-arr">→</span>
+        {related.map((r, i) => (
+          <a href={`/services/${r.slug}`} class={`related-card reveal reveal-delay-${i + 1}`}>
+            <span class="related-icon">{r.icon}</span>
+            <span class="related-label">{r.label}</span>
+            <span class="related-arrow">→</span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ═══ CTA ═══ -->
   <section class="svc-cta-band">
-    <div class="container svc-cta-inner reveal">
-      <h2>Ready to Start Your<br/><span class="outline-dark">{title}</span> Project?</h2>
-      <a href="/#contact" class="btn btn-cta-dark">Get a Free Quote →</a>
+    <div class="container">
+      <div class="svc-cta-inner reveal">
+        <div>
+          <p class="eyebrow">Ready to Start?</p>
+          <h2>Let's build your<br><span class="outline">{title}</span><br>project together.</h2>
+        </div>
+        <div class="svc-cta-actions">
+          <a href="/#contact" class="btn-primary">Start a Project</a>
+          <a href="tel:+917778882276" class="btn-ghost">Call Us Now</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -130,219 +150,240 @@ const { title, description, slug, icon, tagline, heroDesc, features, process, fa
 </Layout>
 
 <style>
-/* HERO */
+/* ─── SERVICE HERO ─── */
 .svc-hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 80px;
-  overflow: hidden;
-  background: var(--black);
 }
-#svcCanvas {
+.svc-hero-media {
   position: absolute;
   inset: 0;
-  width: 100%; height: 100%;
-  opacity: 0.6;
 }
-.svc-hero-inner {
+.svc-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%);
+}
+.svc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.97) 25%, rgba(10,10,10,0.65) 70%, rgba(10,10,10,0.4) 100%);
+}
+.svc-hero-content {
   position: relative;
   z-index: 2;
-  padding-top: 140px;
+  padding-top: 120px;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+  max-width: 900px;
 }
-.breadcrumb {
+.svc-breadcrumb {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--gray);
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(248,248,246,0.4);
+  margin-bottom: 2rem;
 }
-.breadcrumb a { color: var(--gray); transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--white); }
-.breadcrumb span { color: rgba(255,255,255,0.3); }
-.breadcrumb span:last-child { color: var(--white); }
-.svc-badge {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-.svc-hero-inner h1 {
-  font-size: clamp(36px, 6vw, 72px);
+.svc-breadcrumb a { transition: color 0.2s; }
+.svc-breadcrumb a:hover { color: #f8f8f6; }
+.svc-breadcrumb span:not(:last-child) { color: rgba(248,248,246,0.2); }
+.svc-icon { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+.svc-h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -2px;
-  margin-bottom: 20px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: #f8f8f6;
 }
-.svc-hero-desc {
-  font-size: 18px;
-  color: rgba(255,255,255,0.55);
-  max-width: 580px;
-  line-height: 1.7;
-  margin-bottom: 36px;
+.svc-sub {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: rgba(248,248,246,0.6);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 2.5rem;
 }
-.svc-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.svc-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* FEATURES */
-.features-section { padding: 100px 0; }
+/* ─── FEATURES ─── */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1px;
+  gap: 1.5px;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
 }
 .feature-card {
-  background: var(--black);
-  padding: 36px;
+  background: #111;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
   transition: background 0.3s;
-  transition-delay: var(--delay, 0ms);
 }
-.feature-card:hover { background: var(--black3); }
-.fc-num { font-family: var(--font-display); font-size: 11px; color: var(--gray2); font-weight: 700; letter-spacing: 0.1em; }
-.feature-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 800; }
-.feature-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
-
-/* PROCESS */
-.process-section { padding: 100px 0; background: var(--black2); }
-.process-steps { display: flex; flex-direction: column; gap: 0; }
-.process-step {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  align-items: start;
-  gap: 32px;
-  padding: 40px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  position: relative;
-}
-.process-step:last-child { border-bottom: none; }
-.ps-step {
-  font-family: var(--font-display);
-  font-size: 48px;
+.feature-card:hover { background: #161616; }
+.feature-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: rgba(255,255,255,0.08);
+  color: rgba(248,248,246,0.07);
   line-height: 1;
 }
-.ps-content h3 { font-family: var(--font-display); font-size: 22px; font-weight: 800; margin-bottom: 8px; }
-.ps-content p { color: var(--gray); font-size: 15px; line-height: 1.7; max-width: 560px; }
-.ps-line { display: none; }
+.feature-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.feature-card p { font-size: 0.9rem; color: rgba(248,248,246,0.5); line-height: 1.65; }
 
-/* FAQ */
-.faq-section { padding: 100px 0; }
-.faq-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; }
+/* ─── PROCESS ─── */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+.process-step {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+.process-step:hover { background: rgba(0,0,0,0.02); }
+.process-step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(0,0,0,0.08);
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+.process-step-content h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-bottom: 0.6rem;
+}
+.process-step-content p { font-size: 0.95rem; color: #555; line-height: 1.7; }
+
+/* ─── FAQ ─── */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 6rem;
+  align-items: start;
+}
+.faq-left h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 1rem 0 1.5rem;
+}
+.faq-left p { font-size: 0.9rem; color: rgba(248,248,246,0.45); }
+.faq-left p a { text-decoration: underline; opacity: 0.7; transition: opacity 0.2s; }
+.faq-left p a:hover { opacity: 1; }
 .faq-list { display: flex; flex-direction: column; }
 .faq-item {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.faq-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
-.faq-q {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-size: 16px;
+.faq-item summary {
+  padding: 1.5rem 0;
   font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
   list-style: none;
-  gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: color 0.2s;
 }
-.faq-q::-webkit-details-marker { display: none; }
-.faq-icon { font-size: 24px; color: var(--gray); flex-shrink: 0; transition: transform 0.3s; }
-details[open] .faq-icon { transform: rotate(45deg); }
-.faq-a { color: var(--gray); font-size: 15px; line-height: 1.7; padding-top: 12px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: rgba(248,248,246,0.8); }
+.faq-answer {
+  padding: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: rgba(248,248,246,0.5);
+  line-height: 1.75;
+}
 
-/* RELATED */
-.related-section { padding: 80px 0; }
-.related-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-}
+/* ─── RELATED ─── */
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .related-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 24px;
-  background: var(--black2);
-  border: 1px solid rgba(255,255,255,0.06);
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 1.5rem 2rem;
+  transition: border-color 0.2s, box-shadow 0.3s;
 }
-.related-card:hover { border-color: rgba(255,255,255,0.3); background: var(--black3); }
-.rc-icon { font-size: 22px; }
-.rc-label { font-size: 14px; font-weight: 600; flex: 1; }
-.rc-arr { color: var(--gray2); transition: all 0.2s; }
-.related-card:hover .rc-arr { color: var(--white); transform: translate(4px, -4px); }
+.related-card:hover { border-color: rgba(0,0,0,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+.related-icon { font-size: 1.5rem; }
+.related-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  flex: 1;
+}
+.related-arrow { color: #aaa; font-size: 1.1rem; transition: transform 0.2s, color 0.2s; }
+.related-card:hover .related-arrow { transform: translateX(4px); color: #0a0a0a; }
 
-/* CTA */
-.svc-cta-band { background: var(--white); padding: 100px 0; }
-.svc-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.svc-cta-inner h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; color: var(--black); }
-.outline-dark { -webkit-text-stroke: 2px var(--black); color: transparent; }
-.btn-cta-dark { background: var(--black); color: var(--white); padding: 18px 48px; font-size: 15px; font-family: var(--font); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; }
-.btn-cta-dark:hover { background: #222; transform: translateY(-2px); }
-
-/* SHARED */
-.section-header { margin-bottom: 56px; }
-.section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
-.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gray); }
-.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.1; margin-bottom: 16px; letter-spacing: -1px; }
-.outline { -webkit-text-stroke: 1px var(--white); color: transparent; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; font-family: var(--font); font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border: none; text-decoration: none; }
-.btn-white { background: var(--white); color: var(--black); }
-.btn-white:hover { background: var(--white2); transform: translateY(-2px); }
-.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
-.btn-outline:hover { border-color: var(--white); }
+/* ─── CTA BAND ─── */
+.svc-cta-band {
+  background: var(--black);
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.svc-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.svc-cta-inner h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  margin-top: 0.75rem;
+}
+.svc-cta-inner .eyebrow { margin-bottom: 0.5rem; }
+.svc-cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 @media (max-width: 900px) {
-  .faq-inner { grid-template-columns: 1fr; }
-  .svc-cta-inner { flex-direction: column; text-align: center; }
-  .process-step { grid-template-columns: 60px 1fr; }
-}
-@media (max-width: 600px) {
-  .process-step { grid-template-columns: 1fr; }
-  .ps-step { font-size: 32px; }
+  .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .related-grid { grid-template-columns: 1fr; }
+  .process-step { grid-template-columns: 64px 1fr; gap: 1.5rem; }
+  .process-step-num { font-size: 2rem; }
+  .svc-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 </style>
 
 <script>
-(async () => {
-  const canvas = document.getElementById('svcCanvas');
-  if (!canvas) return;
-  const THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.module.js');
-  const W = canvas.offsetWidth || window.innerWidth, H = canvas.offsetHeight || 500;
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setSize(W, H);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, W/H, 0.1, 1000);
-  camera.position.z = 20;
-  const geo = new THREE.BufferGeometry();
-  const count = 1500;
-  const pos = new Float32Array(count * 3);
-  for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 80;
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1, transparent: true, opacity: 0.3 });
-  scene.add(new THREE.Points(geo, mat));
-  function animate() {
-    requestAnimationFrame(animate);
-    geo.attributes.position.array.forEach((_, i) => {
-      if (i % 3 === 1) geo.attributes.position.array[i] += Math.sin(Date.now() * 0.0005 + i) * 0.002;
-    });
-    geo.attributes.position.needsUpdate = true;
-    renderer.render(scene, camera);
-  }
-  animate();
-})();
-
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    const item = q.closest('details');
-    document.querySelectorAll('details[open]').forEach(d => { if (d !== item) d.removeAttribute('open'); });
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const isOpen = item.hasAttribute('open');
+    document.querySelectorAll('.faq-item[open]').forEach(d => d.removeAttribute('open'));
+    if (!isOpen) setTimeout(() => item.setAttribute('open', ''), 0);
   });
 });
 </script>
