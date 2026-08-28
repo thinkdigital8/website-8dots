@@ -1,0 +1,38 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+---
+<ServiceLayout
+  title="Software Development"
+  description="Custom software development by 8dots — ERP, CRM, SaaS platforms, and enterprise solutions engineered for complex business problems."
+  slug="software-development"
+  icon="⚙️"
+  tagline="Software Engineered for the Real World."
+  heroDesc="We design and build custom software solutions — from internal business tools and ERP systems to full SaaS platforms — that solve complex problems with elegant, scalable code."
+  features={[
+    { title: 'Custom SaaS Development', desc: 'Multi-tenant SaaS platforms built with subscription billing, user management and analytics.' },
+    { title: 'ERP & CRM Systems', desc: 'Bespoke enterprise tools that streamline operations and centralise business data.' },
+    { title: 'Cloud Architecture', desc: 'AWS, GCP, and Azure infrastructure designed for reliability and cost efficiency.' },
+    { title: 'Microservices & APIs', desc: 'Decoupled, scalable architecture with RESTful and GraphQL APIs.' },
+    { title: 'Database Design', desc: 'Relational and NoSQL database architecture optimised for your workload.' },
+    { title: 'DevOps & CI/CD', desc: 'Automated pipelines, containerisation with Docker/Kubernetes, and infrastructure as code.' },
+    { title: 'Legacy Modernisation', desc: 'Migrate and refactor legacy systems to modern, maintainable architectures.' },
+    { title: 'Security & Compliance', desc: 'Penetration testing, OWASP hardening, GDPR/data privacy compliance.' },
+  ]}
+  process={[
+    { step: '01', title: 'Requirements Engineering', desc: 'Translate business needs into clear, testable technical specifications.' },
+    { step: '02', title: 'Architecture Design', desc: 'System design, technology stack selection, and scalability planning.' },
+    { step: '03', title: 'Agile Development', desc: 'Sprint-based development with regular demos and iterative delivery.' },
+    { step: '04', title: 'QA & Security Testing', desc: 'Automated test suites, load testing, and security audits.' },
+    { step: '05', title: 'Deployment & Support', desc: 'Managed deployment, monitoring, and 24/7 on-call SLA support.' },
+  ]}
+  faqs={[
+    { q: 'What technologies do you use?', a: 'We work across the stack — Node.js, Python, Go, React, Next.js, PostgreSQL, MongoDB, Redis, AWS, GCP, Docker, Kubernetes and more.' },
+    { q: 'Can you take over an existing codebase?', a: 'Yes. We do code audits and can onboard onto any codebase. We have rescued dozens of stalled projects and legacy systems.' },
+    { q: 'Do you offer post-launch SLA support?', a: 'Yes. We offer 24/7 SLA agreements with defined response times. Most enterprise clients are on a retainer model.' },
+  ]}
+  related={[
+    { slug: 'app-development', label: 'App Development', icon: '📱' },
+    { slug: 'web-development', label: 'Web Development', icon: '🌐' },
+    { slug: 'ui-ux-design', label: 'UI/UX Design', icon: '🎨' },
+  ]}
+/>

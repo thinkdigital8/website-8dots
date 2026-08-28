@@ -1,0 +1,733 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  { slug: 'app-development',      icon: '📱', label: 'App Development',      desc: 'iOS, Android & cross-platform apps built for scale and performance.' },
+  { slug: 'web-development',      icon: '🌐', label: 'Web Development',       desc: 'Custom websites, web apps, CMS and e-commerce platforms.' },
+  { slug: 'digital-marketing',    icon: '📈', label: 'Digital Marketing',      desc: 'SEO, PPC, social media & content that drives real revenue.' },
+  { slug: 'ui-ux-design',         icon: '🎨', label: 'UI/UX Design',           desc: 'User-centric interfaces that convert and delight.' },
+  { slug: 'graphic-design',       icon: '✏️', label: 'Graphic Design',         desc: 'Brand identities, print and motion graphics that stand out.' },
+  { slug: 'software-development', icon: '⚙️', label: 'Software Development',   desc: 'Custom software solutions for complex business problems.' },
+  { slug: 'branding',             icon: '💡', label: 'Branding',               desc: 'Strategic brand identity that resonates and endures.' },
+];
+
+const stats = [
+  { n: '13+', label: 'Years Experience' },
+  { n: '2000+', label: 'Projects Delivered' },
+  { n: '1200+', label: 'Happy Clients' },
+  { n: '7', label: 'Service Verticals' },
+];
+
+const team = [
+  { name: 'Snehal Patel', role: 'Founder & CEO' },
+  { name: 'Tushar Premal', role: 'Tech Lead' },
+  { name: 'Arbaz Shaikh', role: 'Design Director' },
+  { name: 'Aradhana Yadav', role: 'Marketing Head' },
+  { name: 'Arjun Odedara', role: 'Dev Lead' },
+];
+---
+<Layout title="8dots — Innovative IT Solutions | Ahmedabad, India" description="8dots is Ahmedabad's trusted IT company. App development, web development, digital marketing, UI/UX and graphic design. 13+ years, 2000+ projects.">
+  <Navbar />
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content container">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Est. 2012 · Ahmedabad, India
+      </div>
+      <h1 class="hero-title reveal">
+        <span>We Build</span>
+        <span class="outline block">Digital</span>
+        <span>Products</span>
+      </h1>
+      <p class="hero-sub reveal">Innovative IT solutions tailored for your success. From pixels to products, we craft technology that moves businesses forward.</p>
+      <div class="hero-ctas reveal">
+        <a href="/#services" class="btn btn-white">Explore Services ↓</a>
+        <a href="/#contact" class="btn btn-outline">Let's Talk →</a>
+      </div>
+      <div class="hero-stats reveal">
+        {stats.map(s => (
+          <div class="hstat">
+            <span class="hstat-n">{s.n}</span>
+            <span class="hstat-l">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      {[1,2].map(() => (
+        <div class="marquee-content">
+          {['App Dev', '·', 'Web Dev', '·', 'UI/UX', '·', 'Digital Marketing', '·', 'Branding', '·', 'Software', '·', 'Graphic Design', '·'].map(t => (
+            <span class={t === '·' ? 'dot' : ''}>{t}</span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Services That <span class="outline">Ignite</span> Growth</h2>
+        <p class="section-sub">End-to-end digital capabilities under one roof.</p>
+      </div>
+      <div class="services-grid">
+        {services.map((svc, i) => (
+          <a href={`/services/${svc.slug}`} class="svc-card reveal" style={`--delay:${i * 80}ms`}>
+            <div class="svc-card-top">
+              <span class="svc-icon">{svc.icon}</span>
+              <span class="svc-num">0{i+1}</span>
+            </div>
+            <h3 class="svc-name">{svc.label}</h3>
+            <p class="svc-desc">{svc.desc}</p>
+            <div class="svc-arrow">→</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <section class="stats-band">
+    <div class="container stats-grid">
+      {stats.map(s => (
+        <div class="stat-item reveal">
+          <span class="stat-n">{s.n}</span>
+          <span class="stat-l">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-left reveal">
+        <span class="section-label">About 8dots</span>
+        <h2 class="section-title">Built on <span class="outline">Craft</span>,<br/>Driven by <span class="outline">Results</span></h2>
+        <p>Since 2012, 8dots has been the digital backbone of startups, SMEs, and enterprises across India and the globe. We combine technical depth with creative energy to deliver solutions that actually work.</p>
+        <p>Our offices in Ahmedabad and Houston serve clients across industries — from fintech to fashion, SaaS to services.</p>
+        <a href="/#contact" class="btn btn-white" style="margin-top:32px;">Work With Us →</a>
+      </div>
+      <div class="about-right reveal">
+        <div class="team-grid">
+          {team.map(m => (
+            <div class="team-card">
+              <div class="team-avatar">
+                {m.name.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div>
+                <p class="team-name">{m.name}</p>
+                <p class="team-role">{m.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK TEASER -->
+  <section class="work-section" id="work">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">2000+ Projects.<br/><span class="outline">All Delivered.</span></h2>
+      </div>
+      <div class="work-grid">
+        {[
+          { label: 'E-Commerce Platform', tag: 'Web Dev', bg: '#111' },
+          { label: 'Mobile Banking App', tag: 'App Dev', bg: '#0d0d0d' },
+          { label: 'Brand Identity System', tag: 'Branding', bg: '#141414' },
+          { label: 'SaaS Dashboard', tag: 'UI/UX', bg: '#0a0a0a' },
+        ].map(w => (
+          <div class="work-card reveal" style={`background:${w.bg}`}>
+            <div class="work-tag">{w.tag}</div>
+            <h3 class="work-label">{w.label}</h3>
+            <div class="work-arr">↗</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">Clients Love <span class="outline">8dots</span></h2>
+      </div>
+      <div class="testi-grid">
+        {[
+          { text: 'The team at 8dots delivered our app on time and beyond our expectations. Highly professional and technically excellent.', name: 'Rahul Mehta', role: 'CEO, FinStart' },
+          { text: 'Our website traffic tripled within 3 months of partnering with 8dots for SEO and digital marketing. Incredible results.', name: 'Priya Shah', role: 'Founder, StyleBrand' },
+          { text: 'Patient, creative, and precise. 8dots redesigned our entire brand identity and the results speak for themselves.', name: 'David Chen', role: 'Director, TechCo USA' },
+        ].map(t => (
+          <div class="testi-card reveal">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"{t.text}"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">{t.name[0]}</div>
+              <div>
+                <p class="testi-name">{t.name}</p>
+                <p class="testi-role">{t.role}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container cta-inner reveal">
+      <h2>Ready to Build<br/>Something <span class="outline-sm">Great?</span></h2>
+      <p>Let's talk about your project. No fluff, just real solutions.</p>
+      <a href="/#contact" class="btn btn-white btn-large">Start a Project →</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's <span class="outline">Talk</span></h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="ci-icon">✉</span>
+            <a href="mailto:info@8dots.in">info@8dots.in</a>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">☎</span>
+            <a href="tel:+917778882276">+91 77788 82276</a>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📍</span>
+            <span>516 Shivam Trade Centre (STC),<br/>Bopal, Ahmedabad, Gujarat 380058</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🌍</span>
+            <span>Houston, TX (USA Office)</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service</label>
+          <select>
+            <option>App Development</option>
+            <option>Web Development</option>
+            <option>Digital Marketing</option>
+            <option>UI/UX Design</option>
+            <option>Graphic Design</option>
+            <option>Software Development</option>
+            <option>Branding</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-white" style="width:100%;justify-content:center;">Send Message ⚡</button>
+      </form>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 16px;
+  margin-bottom: 32px;
+}
+.badge-dot {
+  width: 6px; height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+.hero-title {
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 800;
+  line-height: 1.0;
+  margin-bottom: 24px;
+  letter-spacing: -3px;
+}
+.block { display: block; }
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.hstat { display: flex; flex-direction: column; gap: 4px; }
+.hstat-n { font-family: var(--font-display); font-size: 28px; font-weight: 800; }
+.hstat-l { font-size: 12px; color: var(--gray); letter-spacing: 0.05em; }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  right: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--gray2);
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--gray2));
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 0;
+  overflow: hidden;
+}
+.marquee-content span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.marquee-content .dot { color: var(--white); opacity: 0.6; }
+
+/* SERVICES */
+.services-section { padding: 120px 0; }
+.section-header { margin-bottom: 64px; }
+.section-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+.section-sub { color: var(--gray); font-size: 16px; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.svc-card {
+  background: var(--black);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+  color: inherit;
+  transition-delay: var(--delay, 0ms);
+}
+.svc-card:hover { background: var(--black3); }
+.svc-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.svc-icon { font-size: 28px; }
+.svc-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--gray2);
+  font-weight: 700;
+}
+.svc-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.svc-desc { font-size: 14px; color: var(--gray); line-height: 1.7; flex: 1; }
+.svc-arrow {
+  font-size: 20px;
+  color: var(--gray2);
+  transition: color 0.2s, transform 0.2s;
+  align-self: flex-end;
+}
+.svc-card:hover .svc-arrow { color: var(--white); transform: translate(4px, -4px); }
+
+/* STATS BAND */
+.stats-band {
+  background: var(--white);
+  color: var(--black);
+  padding: 64px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.stat-item { display: flex; flex-direction: column; gap: 8px; }
+.stat-n { font-family: var(--font-display); font-size: 48px; font-weight: 800; color: var(--black); }
+.stat-l { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; }
+
+/* ABOUT */
+.about-section { padding: 120px 0; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-left p { color: var(--gray); font-size: 16px; line-height: 1.8; margin-top: 24px; }
+.team-grid { display: flex; flex-direction: column; gap: 16px; }
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--black2);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: border-color 0.2s;
+}
+.team-card:hover { border-color: rgba(255,255,255,0.2); }
+.team-avatar {
+  width: 44px; height: 44px;
+  background: var(--white);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.team-name { font-weight: 600; font-size: 15px; }
+.team-role { font-size: 12px; color: var(--gray); margin-top: 2px; }
+
+/* WORK */
+.work-section { padding: 120px 0; }
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.work-card {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.work-card:hover { background: var(--black3) !important; }
+.work-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 6px 12px;
+  align-self: flex-start;
+}
+.work-label {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-top: auto;
+}
+.work-arr {
+  font-size: 24px;
+  position: absolute;
+  top: 32px; right: 32px;
+  color: var(--gray2);
+  transition: all 0.2s;
+}
+.work-card:hover .work-arr { color: var(--white); transform: translate(4px, -4px); }
+
+/* TESTIMONIALS */
+.testi-section { padding: 120px 0; }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testi-card {
+  padding: 40px;
+  background: var(--black2);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.2s;
+}
+.testi-card:hover { border-color: rgba(255,255,255,0.2); }
+.testi-stars { color: var(--white); letter-spacing: 2px; font-size: 14px; }
+.testi-text { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.75); flex: 1; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 40px; height: 40px;
+  background: var(--white);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-display);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.testi-name { font-weight: 600; font-size: 14px; }
+.testi-role { font-size: 12px; color: var(--gray); }
+
+/* CTA BAND */
+.cta-band {
+  background: var(--white);
+  color: var(--black);
+  padding: 100px 0;
+}
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cta-inner h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--black);
+}
+.outline-sm { -webkit-text-stroke: 2px var(--black); color: transparent; }
+.cta-inner p { font-size: 16px; color: #555; max-width: 300px; }
+.btn-large { padding: 18px 48px; font-size: 15px; }
+.btn-white { background: var(--black); color: var(--white); }
+.btn-white:hover { background: #222; }
+
+/* CONTACT */
+.contact-section { padding: 120px 0; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+}
+.contact-details { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+.contact-item { display: flex; align-items: flex-start; gap: 16px; }
+.ci-icon {
+  font-size: 18px;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-item a { color: rgba(255,255,255,0.7); font-size: 15px; }
+.contact-item a:hover { color: var(--white); }
+.contact-item span { color: var(--gray); font-size: 15px; line-height: 1.6; }
+
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--black2);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 15px;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: rgba(255,255,255,0.4); }
+.form-group select option { background: var(--black2); }
+
+/* CTA BTN on contact */
+.contact-form .btn-white {
+  background: var(--white);
+  color: var(--black);
+}
+.contact-form .btn-white:hover { background: var(--white2); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-grid { grid-template-columns: 1fr; }
+  .cta-inner { flex-direction: column; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero-title { letter-spacing: -2px; }
+  .hero-stats { gap: 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<script>
+// Three.js hero canvas
+(async () => {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.module.js');
+  const W = canvas.offsetWidth, H = canvas.offsetHeight;
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, W/H, 0.1, 1000);
+  camera.position.z = 30;
+
+  // Particles
+  const geo = new THREE.BufferGeometry();
+  const count = 3000;
+  const pos = new Float32Array(count * 3);
+  for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 100;
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.12, transparent: true, opacity: 0.5 });
+  scene.add(new THREE.Points(geo, mat));
+
+  // Wireframe sphere
+  const sGeo = new THREE.IcosahedronGeometry(12, 2);
+  const sEdges = new THREE.EdgesGeometry(sGeo);
+  const sMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.04 });
+  const sphere = new THREE.LineSegments(sEdges, sMat);
+  sphere.position.set(20, 0, -10);
+  scene.add(sphere);
+
+  let mx = 0, my = 0;
+  window.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth - 0.5) * 2;
+    my = -(e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  let t = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.005;
+    sphere.rotation.x = t * 0.3;
+    sphere.rotation.y = t * 0.5;
+    camera.position.x += (mx * 3 - camera.position.x) * 0.05;
+    camera.position.y += (my * 3 - camera.position.y) * 0.05;
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    const w = canvas.parentElement.offsetWidth;
+    const h = canvas.parentElement.offsetHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+})();
+
+// Contact form
+document.getElementById('contactForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Thanks! We\'ll be in touch within 24 hours ⚡');
+  e.target.reset();
+});
+</script>
